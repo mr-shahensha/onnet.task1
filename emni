@@ -1,0 +1,40 @@
+ <tr>
+            
+             <?php 
+             if($category!="" && $subcategory==""){
+                $f=0;
+        $query=mysqli_query($con,"select * from product where cat_nm='$category'");
+        while($result=mysqli_fetch_assoc($query)){
+            $f++;
+            $sl=$result['sl'];
+            $cat_nm=$result['cat_nm'];
+            $sub_cat_nm=$result['sub_cat_nm'];
+            $product_nm=$result['product_name'];
+            ?>
+            <td><?php echo $f;?></td>
+<td><?php echo $cat_nm;?> </td>
+<td><?php echo  $sub_cat_nm;?> </td>
+<td><?php echo $product_nm;?> </td>
+        </tr>
+            <?php
+        }
+             }else if($category!="" && $subcategory!=""){
+                $f1=0;
+        $query1=mysqli_query($con,"select * from product where cat_nm='$category' and sub_cat_nm='$subcategory' ");
+        while($result1=mysqli_fetch_assoc($query1)){
+            $f1++;
+            $sl1=$result1['sl'];
+            $cat_nm1=$result1['cat_nm'];
+            $sub_cat_nm1=$result1['sub_cat_nm'];
+            $product_nm1=$result1['product_name'];
+            ?>
+            <td><?php echo $f1;?></td>
+<td><?php echo $cat_nm1;?> </td>
+<td><?php echo  $sub_cat_nm1;?> </td>
+<td><?php echo $product_nm1;?> </td>
+</tr>
+
+            <?php
+             }
+            }
+            ?>
